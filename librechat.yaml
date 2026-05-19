@@ -1,0 +1,26 @@
+version: 1.3.5
+cache: true
+
+endpoints:
+  custom:
+    - name: "Azure Foundry - DeepSeek"
+      apiKey: "${CNs5YDEkxLqrVMR6Ufzg9JhaaW4wi3WfWt0sH2nkY9y5lITpIU1mJQQJ99CEACHYHv6XJ3w3AAAAACOGeStn}"
+      # Grab the specific target URI from your DeepSeek deployment details
+      baseURL: "https://<your-deepseek-resource>.services.ai.azure.com/v1" 
+      models:
+        default: ["deepseek-v4-pro"]
+        fetch: false
+      titleConvo: true
+      titleModel: "deepseek-v4-pro"
+      modelDisplayLabel: "DeepSeek v4 Pro"
+
+    - name: "Azure Foundry - ChatGPT 5.4 Mini"
+      apiKey: "${CNs5YDEkxLqrVMR6Ufzg9JhaaW4wi3WfWt0sH2nkY9y5lITpIU1mJQQJ99CEACHYHv6XJ3w3AAAAACOGeStn}"
+      # Grab the specific target URI from your ChatGPT deployment details
+      baseURL: "https://<your-chatgpt-resource>.services.ai.azure.com/v1" 
+      models:
+        default: ["chatgpt-5.4-mini"]
+        fetch: false
+      titleConvo: true
+      titleModel: "chatgpt-5.4-mini"
+      modelDisplayLabel: "ChatGPT 5.4 Mini"
