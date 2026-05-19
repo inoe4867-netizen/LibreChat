@@ -5,10 +5,8 @@ endpoints:
   custom:
     - name: "Azure Foundry - DeepSeek"
       apiKey: "CNs5YDEkxLqrVMR6Ufzg9JhaaW4wi3WfWt0sH2nky9y51ITpiU1mJQQJ99CEACHYHv6XJ3w3AAAAACOGeStn"
-      baseURL: "https://henryli06-0342-resource.services.ai.azure.com/v1"
-      # This block forces Azure to see the key
-      headers:
-        "api-key": "CNs5YDEkxLqrVMR6Ufzg9JhaaW4wi3WfWt0sH2nky9y51ITpiU1mJQQJ99CEACHYHv6XJ3w3AAAAACOGeStn"
+      # The critical fix: Azure Serverless expects /models, not /v1
+      baseURL: "https://henryli06-0342-resource.services.ai.azure.com/models"
       models:
         default: ["deepseek-v4-pro"]
         fetch: false
@@ -16,12 +14,10 @@ endpoints:
       titleModel: "deepseek-v4-pro"
       modelDisplayLabel: "DeepSeek v4 Pro"
 
-    - name: "Azure Foundry - ChatGPT 5.4 Mini"
+    - name: "Azure Foundry - ChatGPT"
       apiKey: "CNs5YDEkxLqrVMR6Ufzg9JhaaW4wi3WfWt0sH2nky9y51ITpiU1mJQQJ99CEACHYHv6XJ3w3AAAAACOGeStn"
-      baseURL: "https://henryli06-0342-resource.services.ai.azure.com/api/projects/henryli06-0342/openai/v1"
-      # This block forces Azure to see the key
-      headers:
-        "api-key": "CNs5YDEkxLqrVMR6Ufzg9JhaaW4wi3WfWt0sH2nky9y51ITpiU1mJQQJ99CEACHYHv6XJ3w3AAAAACOGeStn"
+      # The critical fix: Azure Serverless expects /models, not /v1
+      baseURL: "https://henryli06-0342-resource.services.ai.azure.com/models"
       models:
         default: ["chatgpt-5.4-mini"]
         fetch: false
