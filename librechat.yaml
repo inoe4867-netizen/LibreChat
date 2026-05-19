@@ -7,12 +7,10 @@ endpoints:
     groups:
       - group: "Azure AI Foundry"
         apiKey: "CNs5YDEkxLqrVMR6Ufzg9JhaaW4wi3WfWt0sH2nky9y51ITpiU1mJQQJ99CEACHYHv6XJ3w3AAAAACOGeStn"
-        # This is the magic flag that makes Azure Serverless endpoints work
         serverless: true
         baseURL: "https://henryli06-0342-resource.services.ai.azure.com/models"
-        # AzureOpenAI blocks use 'additionalHeaders' instead of 'headers'
-        additionalHeaders:
-          "api-key": "CNs5YDEkxLqrVMR6Ufzg9JhaaW4wi3WfWt0sH2nky9y51ITpiU1mJQQJ99CEACHYHv6XJ3w3AAAAACOGeStn"
+        # This is the critical missing piece!
+        version: "2024-05-01-preview"
         models:
           deepseek-v4-pro:
             deploymentName: "deepseek-v4-pro"
