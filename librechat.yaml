@@ -7,8 +7,9 @@ endpoints:
     groups:
       - group: "Azure AI Foundry"
         apiKey: "CNs5YDEkxLqrVMR6Ufzg9JhaaW4wi3WfWt0sH2nky9y51ITpiU1mJQQJ99CEACHYHv6XJ3w3AAAAACOGeStn"
-        # This forces LibreChat to use your exact Foundry domain 
-        # while keeping the required Azure OpenAI deployment routing path
+        # We add this back purely to satisfy LibreChat's strict bootup validation
+        instanceName: "henryli06-0342-resource" 
+        # This baseURL will override the instanceName and correctly route your traffic
         baseURL: "https://henryli06-0342-resource.services.ai.azure.com/openai/deployments"
         version: "2024-05-01-preview"
         models:
