@@ -1,26 +1,17 @@
-version: 1.1.5
-cache: true
-
 endpoints:
-  azureOpenAI:
-    groups:
-      # 1. GPT-5.5 (Working perfectly)
-      - group: "azure-gpt"
-        apiKey: "CNs5YDEkxLqrVMR6Ufzg9JhaaW4wi3WfWt0sH2nkY9y5lITpIU1mJQQJ99CEACHYHv6XJ3w3AAAAACOGeStn"
-        instanceName: "henryli06-0342-resource"
-        version: "2024-08-01-preview"
-        models:
-          gpt-4o:
-            deploymentName: "gpt-5.5"
+  custom:
+    - name: "Foundry GPT"
+      apiKey: "CNs5YDEkxLqrVMR6Ufzg9JhaaW4wi3WfWt0sH2nkY9y5lITpIU1mJQQJ99CEACHYHv6XJ3w3AAAAACOGeStn"
+      baseURL: "https://henryli06-0342-resource.services.ai.azure.com/openai/v1"
+      models:
+        default:
+          - "gpt-5.5"
+        fetch: false
 
-      # 2. Claude Opus (Azure AI Foundry Serverless)
-      - group: "azure-claude"
-        apiKey: "CNs5YDEkxLqrVMR6Ufzg9JhaaW4wi3WfWt0sH2nkY9y5lITpIU1mJQQJ99CEACHYHv6XJ3w3AAAAACOGeStn"
-        # Point ONLY to the root /models path
-        baseURL: "https://henryli06-0342-resource.services.ai.azure.com/models"
-        version: "2024-05-01-preview"
-        # This magic flag correctly appends the query parameter without stripping it
-        serverless: true
-        models:
-          claude-opus-4-8:
-            deploymentName: "claude-opus-4-8"
+    - name: "Foundry Claude"
+      apiKey: "CNs5YDEkxLqrVMR6Ufzg9JhaaW4wi3WfWt0sH2nkY9y5lITpIU1mJQQJ99CEACHYHv6XJ3w3AAAAACOGeStn"
+      baseURL: "https://henryli06-0342-resource.services.ai.azure.com/anthropic/v1"
+      models:
+        default:
+          - "claude-opus-4-8"
+        fetch: false
