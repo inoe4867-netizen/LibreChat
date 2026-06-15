@@ -2,16 +2,30 @@ version: 1.3.12
 cache: true
 
 endpoints:
-  # This section handles your GPT-5.5 model
   azureOpenAI:
     groups:
       - group: "azure-gpt"
-        apiKey: "CNs5YDEkxLqrVMR6Ufzg9JhaaW4wi3WfWt0sH2nkY9y5lITpIU1mJQQJ99CEACHYHv6XJ3w3AAAAACOGeStn"
+        apiKey: "${AZURE_API_KEY}"
         instanceName: "henryli06-0342-resource"
         version: "2024-08-01-preview"
         models:
-          gpt-5.5:
+          gpt-4o:
             deploymentName: "gpt-5.5"
- version: 1.3.12
-cache: true
 
+modelSpecs:
+  list:
+    - name: "display-gpt-5.5"
+      label: "GPT-5.5"
+      description: "Azure OpenAI"
+      iconURL: "azureOpenAI"
+      preset:
+        endpoint: "azureOpenAI"
+        model: "gpt-4o"
+
+    - name: "display-claude-opus"
+      label: "Claude Opus 4.8"
+      description: "Azure Anthropic"
+      iconURL: "anthropic"
+      preset:
+        endpoint: "anthropic"
+        model: "claude-opus-4-8"
