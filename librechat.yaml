@@ -2,24 +2,45 @@ version: 1.1.5
 cache: true
 
 endpoints:
+  # 1. Restores your working GPT setup exactly as you had it
   azureOpenAI:
     groups:
       - group: "azure-gpt"
-        apiKey: "CNs5YDEkxLqrVMR6Ufzg9JhaaW4wi3WfWt0sH2nky9y51ITpiU1mJQQJ99CEACHYHv6XJ3w3AAAAACOGeStn"
+        apiKey: "CNs5YDEkxLqrVMR6Ufzg9JhaaW4wi3WfWt0sH2nkY9y5lITpIU1mJQQJ99CEACHYHv6XJ3w3AAAAACOGeStn"
         instanceName: "henryli06-0342-resource"
         version: "2024-08-01-preview"
         models:
           gpt-4o:
             deploymentName: "gpt-5.5"
 
+  # 2. Configures Claude Opus as an Azure Foundry Serverless model
   custom:
     - name: "Azure-Claude"
-      apiKey: "CNs5YDEkxLqrVMR6Ufzg9JhaaW4wi3WfWt0sH2nky9y51ITpiU1mJQQJ99CEACHYHv6XJ3w3AAAAACOGeStn"
-      baseURL: "https://henryli06-0342-resource.services.ai.azure.com/v1"
+      apiKey: "CNs5YDEkxLqrVMR6Ufzg9JhaaW4wi3WfWt0sH2nkY9y5lITpIU1mJQQJ99CEACHYHv6XJ3w3AAAAACOGeStn"
+      baseURL: "https://henryli06-0342-resource.services.ai.azure.com/models"
       models:
         default: ["claude-opus-4-8"]
-      fetch: false
       dropParams: ["user"]
       headers:
-        api-key: "CNs5YDEkxLqrVMR6Ufzg9JhaaW4wi3WfWt0sH2nky9y51ITpiU1mJQQJ99CEACHYHv6XJ3w3AAAAACOGeStn"
+        api-key: "CNs5YDEkxLqrVMR6Ufzg9JhaaW4wi3WfWt0sH2nkY9y5lITpIU1mJQQJ99CEACHYHv6XJ3w3AAAAACOGeStn"
 
+# 3. Preserves your custom UI dropdown menus
+modelSpecs:
+  list:
+    - name: "display-gpt-5.5"
+      label: "GPT-5.5"
+      description: "Azure OpenAI"
+      iconURL: "azureOpenAI"
+      preset:
+        endpoint: "azureOpenAI"
+        model: "gpt-4o"
+
+    - name: "display-claude-opus"
+      label: "Claude Opus 4.8"
+      description: "Azure AI Foundry"
+      # Keeps the official Anthropic logo in your UI
+      iconURL: "anthropic"
+      preset:
+        # Crucial: This must match the unique 'name' of the custom endpoint above
+        endpoint: "Azure-Claude" 
+        model: "claude-opus-4-8"
