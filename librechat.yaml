@@ -15,14 +15,3 @@ endpoints:
  version: 1.3.12
 cache: true
 
-  # 2. Your new Custom Endpoint configuration for Claude Opus
-custom:
-    - name: "Azure-Claude"
-      apiKey: "CNs5YDEkxLqrVMR6Ufzg9JhaaW4wi3WfWt0sH2nkY9y5lITpIU1mJQQJ99CEACHYHv6XJ3w3AAAAACOGeStn"
-      baseURL: "https://henryli06-0342-resource.services.ai.azure.com/chat/completions"
-      directEndpoint: true
-      models:
-        default: ["claude-opus-4-8"]
-      iconURL: "anthropic"
-      headers:
-        api-key: "CNs5YDEkxLqrVMR6Ufzg9JhaaW4wi3WfWt0sH2nkY9y5lITpIU1mJQQJ99CEACHYHv6XJ3w3AAAAACOGeStn"
