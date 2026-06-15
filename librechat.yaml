@@ -14,10 +14,9 @@ endpoints:
 
   anthropic:
     apiKey: "CNs5YDEkxLqrVMR6Ufzg9JhaaW4wi3WfWt0sH2nkY9y5lITpIU1mJQQJ99CEACHYHv6XJ3w3AAAAACOGeStn"
-    # LibreChat uses this to route traffic through your Azure Foundry instance
-    reverseProxyUrl: "CNs5YDEkxLqrVMR6Ufzg9JhaaW4wi3WfWt0sH2nkY9y5lITpIU1mJQQJ99CEACHYHv6XJ3w3AAAAACOGeStn" 
-    models:
-      default: ["claude-opus-4-8"]
+    reverseProxyUrl: "https://henryli06-0342-resource.services.ai.azure.com/anthropic/" 
+    # Fixed: Native endpoints require a direct array here
+    models: ["claude-opus-4-8"]
 
 modelSpecs:
   list:
