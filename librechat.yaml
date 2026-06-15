@@ -12,3 +12,12 @@ endpoints:
         models:
           gpt-5.5:
             deploymentName: "gpt-5.5"
+      
+endpoints:
+  custom:
+    - name: "Azure-Claude"
+      apiKey: "${AZURE_FOUNDRY_KEY}"
+      baseURL: "https://<your-resource>.services.ai.azure.com/anthropic/v1"
+      models:
+        default: ["claude-opus-4-8"]
+      directEndpoint: true
