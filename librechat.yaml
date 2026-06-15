@@ -1,17 +1,23 @@
-endpoints:
-  custom:
-    - name: "Foundry GPT"
-      apiKey: "CNs5YDEkxLqrVMR6Ufzg9JhaaW4wi3WfWt0sH2nkY9y5lITpIU1mJQQJ99CEACHYHv6XJ3w3AAAAACOGeStn"
-      baseURL: "https://henryli06-0342-resource.services.ai.azure.com/openai/v1"
-      models:
-        default:
-          - "gpt-5.5"
-        fetch: false
+version: 1.1.5
+cache: true
 
-    - name: "Foundry Claude"
-      apiKey: "CNs5YDEkxLqrVMR6Ufzg9JhaaW4wi3WfWt0sH2nkY9y5lITpIU1mJQQJ99CEACHYHv6XJ3w3AAAAACOGeStn"
-      baseURL: "https://henryli06-0342-resource.services.ai.azure.com/anthropic/v1"
-      models:
-        default:
-          - "claude-opus-4-8"
-        fetch: false
+endpoints:
+  azureOpenAI:
+    groups:
+      # 1. GPT-5.5 (Working perfectly)
+      - group: "azure-gpt"
+        apiKey: "CNs5YDEkxLqrVMR6Ufzg9JhaaW4wi3WfWt0sH2nkY9y5lITpIU1mJQQJ99CEACHYHv6XJ3w3AAAAACOGeStn"
+        instanceName: "henryli06-0342-resource"
+        version: "2024-08-01-preview"
+        models:
+          gpt-4o:
+            deploymentName: "gpt-5.5"
+
+endpoints:
+  anthropic:
+    apiKey: "CNs5YDEkxLqrVMR6Ufzg9JhaaW4wi3WfWt0sH2nkY9y5lITpIU1mJQQJ99CEACHYHv6XJ3w3AAAAACOGeStn"
+    baseURL: "https://henryli06-0342-resource.services.ai.azure.com/anthropic/v1"
+    models:
+      default:
+        - "claude-opus-4-8"
+      
