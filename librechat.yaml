@@ -5,27 +5,20 @@ endpoints:
   azureOpenAI:
     groups:
       - group: "azure-gpt"
-        apiKey: "${AZURE_API_KEY}"
+        apiKey: "CNs5YDEkxLqrVMR6Ufzg9JhaaW4wi3WfWt0sH2nky9y51ITpiU1mJQQJ99CEACHYHv6XJ3w3AAAAACOGeStn"
         instanceName: "henryli06-0342-resource"
         version: "2024-08-01-preview"
         models:
           gpt-4o:
             deploymentName: "gpt-5.5"
 
-modelSpecs:
-  list:
-    - name: "display-gpt-5.5"
-      label: "GPT-5.5"
-      description: "Azure OpenAI"
-      iconURL: "azureOpenAI"
-      preset:
-        endpoint: "azureOpenAI"
-        model: "gpt-4o"
-
-    - name: "display-claude-opus"
-      label: "Claude Opus 4.8"
-      description: "Azure Anthropic"
-      iconURL: "anthropic"
-      preset:
-        endpoint: "anthropic"
-        model: "claude-opus-4-8"
+  custom:
+    - name: "Azure-Claude"
+      apiKey: "CNs5YDEkxLqrVMR6Ufzg9JhaaW4wi3WfWt0sH2nky9y51ITpiU1mJQQJ99CEACHYHv6XJ3w3AAAAACOGeStn"
+      baseURL: "https://henryli06-0342-resource.services.ai.azure.com/v1"
+      models:
+        default: ["claude-opus-4-8"]
+        fetch: false
+      dropParams: ["user"]
+      headers:
+        api-key: "CNs5YDEkxLqrVMR6Ufzg9JhaaW4wi3WfWt0sH2nky9y51ITpiU1mJQQJ99CEACHYHv6XJ3w3AAAAACOGeStn"
