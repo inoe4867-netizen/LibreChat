@@ -4,6 +4,7 @@ cache: true
 endpoints:
   azureOpenAI:
     groups:
+      # 1. GPT-5.5 (Working perfectly)
       - group: "azure-gpt"
         apiKey: "CNs5YDEkxLqrVMR6Ufzg9JhaaW4wi3WfWt0sH2nkY9y5lITpIU1mJQQJ99CEACHYHv6XJ3w3AAAAACOGeStn"
         instanceName: "henryli06-0342-resource"
@@ -12,35 +13,14 @@ endpoints:
           gpt-4o:
             deploymentName: "gpt-5.5"
 
-  custom:
-    - name: "Azure-Claude"
-      apiKey: "CNs5YDEkxLqrVMR6Ufzg9JhaaW4wi3WfWt0sH2nkY9y5lITpIU1mJQQJ99CEACHYHv6XJ3w3AAAAACOGeStn"
-      # The full Azure path with the correct serverless API version appended
-      baseURL: "https://henryli06-0342-resource.services.ai.azure.com/models/chat/completions?api-version=2024-05-01-preview"
-      # Crucial: Stops LibreChat from duplicating the /chat/completions path
-      directEndpoint: true
-      models:
-        default:
-          - "claude-opus-4-8"
-      headers:
-        api-key: "CNs5YDEkxLqrVMR6Ufzg9JhaaW4wi3WfWt0sH2nkY9y5lITpIU1mJQQJ99CEACHYHv6XJ3w3AAAAACOGeStn"
-      dropParams:
-        - "user"
-
-modelSpecs:
-  list:
-    - name: "display-gpt-5.5"
-      label: "GPT-5.5"
-      description: "Azure OpenAI"
-      iconURL: "azureOpenAI"
-      preset:
-        endpoint: "azureOpenAI"
-        model: "gpt-4o"
-
-    - name: "display-claude-opus"
-      label: "Claude Opus 4.8"
-      description: "Azure AI Foundry"
-      iconURL: "anthropic"
-      preset:
-        endpoint: "Azure-Claude"
-        model: "claude-opus-4-8"
+      # 2. Claude Opus (Azure AI Foundry Serverless)
+      - group: "azure-claude"
+        apiKey: "CNs5YDEkxLqrVMR6Ufzg9JhaaW4wi3WfWt0sH2nkY9y5lITpIU1mJQQJ99CEACHYHv6XJ3w3AAAAACOGeStn"
+        # Point ONLY to the root /models path
+        baseURL: "https://henryli06-0342-resource.services.ai.azure.com/models"
+        version: "2024-05-01-preview"
+        # This magic flag correctly appends the query parameter without stripping it
+        serverless: true
+        models:
+          claude-opus-4-8:
+            deploymentName: "claude-opus-4-8"
