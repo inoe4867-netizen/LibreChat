@@ -4,7 +4,6 @@ cache: true
 endpoints:
   azureOpenAI:
     groups:
-      # 1. GPT-5.5 (Working perfectly)
       - group: "azure-gpt"
         apiKey: "CNs5YDEkxLqrVMR6Ufzg9JhaaW4wi3WfWt0sH2nkY9y5lITpIU1mJQQJ99CEACHYHv6XJ3w3AAAAACOGeStn"
         instanceName: "henryli06-0342-resource"
@@ -13,11 +12,27 @@ endpoints:
           gpt-4o:
             deploymentName: "gpt-5.5"
 
-endpoints:
   anthropic:
     apiKey: "CNs5YDEkxLqrVMR6Ufzg9JhaaW4wi3WfWt0sH2nkY9y5lITpIU1mJQQJ99CEACHYHv6XJ3w3AAAAACOGeStn"
-    baseURL: "https://henryli06-0342-resource.services.ai.azure.com/anthropic/v1"
+    # LibreChat uses this to route traffic through your Azure Foundry instance
+    reverseProxyUrl: "CNs5YDEkxLqrVMR6Ufzg9JhaaW4wi3WfWt0sH2nkY9y5lITpIU1mJQQJ99CEACHYHv6XJ3w3AAAAACOGeStn" 
     models:
-      default:
-        - "claude-opus-4-8"
-      
+      default: ["claude-opus-4-8"]
+
+modelSpecs:
+  list:
+    - name: "display-gpt-5.5"
+      label: "GPT-5.5"
+      description: "Azure OpenAI"
+      iconURL: "azureOpenAI"
+      preset:
+        endpoint: "azureOpenAI"
+        model: "gpt-4o"
+
+    - name: "display-claude-opus"
+      label: "Claude Opus 4.8"
+      description: "Azure AI Foundry"
+      iconURL: "anthropic"
+      preset:
+        endpoint: "anthropic"
+        model: "claude-opus-4-8"
