@@ -12,11 +12,3 @@ endpoints:
         models:
           gpt-5.5:
             deploymentName: "gpt-5.5"
-
-  # This section tells LibreChat to look at your Anthropic env variables for Claude
-  anthropic:
-    apiKey: "CNs5YDEkxLqrVMR6Ufzg9JhaaW4wi3WfWt0sH2nkY9y5lITpIU1mJQQJ99CEACHYHv6XJ3w3AAAAACOGeStn"
-    baseURL: "https://henryli06-0342-resource.services.ai.azure.com/anthropic/v1"
-    models:
-      default: ["claude-opus-4-8"]
-      fetch: false
