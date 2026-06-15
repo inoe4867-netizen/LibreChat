@@ -15,14 +15,17 @@ endpoints:
   custom:
     - name: "Azure-Claude"
       apiKey: "CNs5YDEkxLqrVMR6Ufzg9JhaaW4wi3WfWt0sH2nkY9y5lITpIU1mJQQJ99CEACHYHv6XJ3w3AAAAACOGeStn"
-      baseURL: "https://henryli06-0342-resource.services.ai.azure.com"
+      # The full Azure path with the correct serverless API version appended
+      baseURL: "https://henryli06-0342-resource.services.ai.azure.com/models/chat/completions?api-version=2024-05-01-preview"
+      # Crucial: Stops LibreChat from duplicating the /chat/completions path
+      directEndpoint: true
       models:
         default:
           - "claude-opus-4-8"
       headers:
         api-key: "CNs5YDEkxLqrVMR6Ufzg9JhaaW4wi3WfWt0sH2nkY9y5lITpIU1mJQQJ99CEACHYHv6XJ3w3AAAAACOGeStn"
       dropParams:
-        - user
+        - "user"
 
 modelSpecs:
   list:
