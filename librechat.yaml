@@ -1,4 +1,4 @@
-version: 1.3.12
+version: 1.1.5
 cache: true
 
 endpoints:
@@ -18,7 +18,8 @@ endpoints:
       baseURL: "https://henryli06-0342-resource.services.ai.azure.com/v1"
       models:
         default: ["claude-opus-4-8"]
-        fetch: false
+      fetch: false
       dropParams: ["user"]
       headers:
         api-key: "CNs5YDEkxLqrVMR6Ufzg9JhaaW4wi3WfWt0sH2nky9y51ITpiU1mJQQJ99CEACHYHv6XJ3w3AAAAACOGeStn"
+
